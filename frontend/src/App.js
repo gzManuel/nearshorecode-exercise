@@ -24,29 +24,39 @@ function App() {
     return httpStateCheck.status !== 'not send' && httpStateCheck.status !== 'completed'
   }
   useEffect(() => {
-
     // If is sent request and there isn't found a user.
-    if(email.length!=0){
-      if (httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length ===0) {
-        setShowModal(true);
-      }else{
+    
+    if (email.length !== 0) {
+
+      console.log(Object.keys(httpStateCheck.data).length)
+      console.log(httpStateCheck.status)
+
+      if (httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length !== 0) {
         setShowFormPayment(true);
+
+        console.log("hey")
+      }
+      if (httpStateCheck.status==="completed" && Object.keys(httpStateCheck.data).length === 0) {
+        console.log('hey you')
+        setShowModal(true);
       }
     }
   }, [httpStateCheck])
 
   const checkEmailHandler = async (event) => {
     event.preventDefault();
-    senRequestCheck({ email });
+    if (email.length!==0) {
+      senRequestCheck({ email });
+    }
   }
 
-  if (checkStatus()) {
-    return <Spinner/>;
+  if (checkStatus() ) {
+    return <Spinner />;
   }
 
   return (
     <Layout>
-      <FormEmail email={email} onSetEmail={setEmail} onCheckEmail={checkEmailHandler} >
+      <FormEmail email={email} onSetEmail={setEmail} onCheckEmail={checkEmailHandler} title={"Check if you have debs"} >
       </FormEmail>
 
       <Modal show={showModal} onCancel={() => { setShowModal(false) }} title={"User is not found"} >
@@ -55,7 +65,7 @@ function App() {
 
       <Modal show={showFormPayment} onCancel={() => { setShowFormPayment(false) }} title={"Your Balance"} >
         <FormPayment></FormPayment>
-        <Button onClick={()=>{setShowFormPayment(false)}}>Cancel </Button>
+        <Button onClick={() => { setShowFormPayment(false) }}>Cancel </Button>
       </Modal>
 
     </Layout>
