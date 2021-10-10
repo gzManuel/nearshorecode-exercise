@@ -32,7 +32,7 @@ npm start
 ├── src
 │   ├── index.js
 │   ├── App.js *** The principal component which holds FormEmail and FormPayment componets
-│   ├── .env *** The The domain of the backend
+│   ├── .env *** The enviroment domain of the backend
 │   ├── auth_config.json *** The json with the information of auth0, update with your credentials.
 │   ├── lib *** Libraries utilized in the project.
 │   ├── hooks *** Hooks used to refactor code.
