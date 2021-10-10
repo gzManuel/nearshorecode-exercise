@@ -7,6 +7,7 @@ const router = express.Router();
 // EndPoints
 // router.post('/',mainController.postUser);
 
-router.get('/information',mainController.information)
+router.get('/information', mainController.information);
+router.patch('/loan', mainController.loan);
 
 module.exports = router;
