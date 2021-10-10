@@ -1,17 +1,13 @@
-
-import { useEffect, useState } from 'react';
-
 import Button from '../UI/Button';
-import {checkEmail} from '../../api/api';
-import Spinner from '../UI/Spinner';
-import Modal from '../UI/Modal';
+import classes from './FormEmail.module.css'
 
-const FormEmail = ({email, onSetEmail, onCheckEmail }) => {
 
-    
+const FormEmail = ({email, onSetEmail, onCheckEmail, title }) => {
+
     return (
-        <form onSubmit={onCheckEmail}>
-            <label> Email </label><br />
+        <form onSubmit={onCheckEmail} className={classes.form}>
+            <h2> {title} </h2>
+            <label> Email </label>
             <input type="email" value={email} onChange={event => onSetEmail(event.target.value) } /><br />
             <Button >Check </Button>
         </form>
