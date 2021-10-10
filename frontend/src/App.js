@@ -1,16 +1,63 @@
+import { useEffect, useState } from 'react';
+
+
+import useHttp from './hooks/useHttp';
 import FormEmail from "./components/Forms/FormEmail";
 import FormPayment from './components/Forms/FormPayment';
 import Layout from "./components/Layout/Layout";
-import NotFoundPage from './components/UI/NotFoundPage';
+
+import { checkEmail } from './api/api';
+import Spinner from './components/UI/Spinner';
+import Modal from './components/UI/Modal';
+import Button from './components/UI/Button';
 
 function App() {
 
+  const [email, setEmail] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [showFormPayment, setShowFormPayment] = useState(false);
+
+  const { sendRequest: senRequestCheck, httpState: httpStateCheck } = useHttp(checkEmail);
+  const { sendRequest: payment, httpState: httpStatePayment } = useHttp();
+
+  const checkStatus = () => {
+    return httpStateCheck.status !== 'not send' && httpStateCheck.status !== 'completed'
+  }
+  useEffect(() => {
+
+    // If is sent request and there isn't found a user.
+    if(email.length!=0){
+      if (httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length ===0) {
+        setShowModal(true);
+      }else{
+        setShowFormPayment(true);
+      }
+    }
+  }, [httpStateCheck])
+
+  const checkEmailHandler = async (event) => {
+    event.preventDefault();
+    senRequestCheck({ email });
+  }
+
+  if (checkStatus()) {
+    return <Spinner/>;
+  }
 
   return (
     <Layout>
-      <FormEmail >
-
+      <FormEmail email={email} onSetEmail={setEmail} onCheckEmail={checkEmailHandler} >
       </FormEmail>
+
+      <Modal show={showModal} onCancel={() => { setShowModal(false) }} title={"User is not found"} >
+        <Button onClick={() => { setShowModal(false) }}>Cancel</Button>
+      </Modal>
+
+      <Modal show={showFormPayment} onCancel={() => { setShowFormPayment(false) }} title={"Your Balance"} >
+        <FormPayment></FormPayment>
+        <Button onClick={()=>{setShowFormPayment(false)}}>Cancel </Button>
+      </Modal>
+
     </Layout>
   );
 }

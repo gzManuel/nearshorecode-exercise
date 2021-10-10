@@ -5,19 +5,19 @@ function httpReducer(state, action) {
         case 'SEND':
             return {
                 status: 'pending',
-                data: null,
+                data: {},
                 error: null,
             }
         case 'SUCCESS':
             return {
                 status: 'completed',
                 data: action.responseData,
-                error: null,
+                error: {},
             }
         case 'ERROR':
             return {
                 status: 'completed',
-                data: null,
+                data: {},
                 error: action.errorMessage,
             }
         default:
