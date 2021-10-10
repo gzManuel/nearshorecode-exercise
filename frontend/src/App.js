@@ -18,7 +18,6 @@ function App() {
   const [showFormPayment, setShowFormPayment] = useState(false);
 
   const { sendRequest: senRequestCheck, httpState: httpStateCheck } = useHttp(checkEmail);
-  const { sendRequest: payment, httpState: httpStatePayment } = useHttp();
 
   const checkStatus = () => {
     return httpStateCheck.status !== 'not send' && httpStateCheck.status !== 'completed'
@@ -67,7 +66,7 @@ function App() {
         
          {(httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length !== 0)&&
          <FormPayment email={email} userAmount={httpStateCheck.data.amount}/>}
-         
+
         <Button onClick={() => { setShowFormPayment(false) }}>Cancel </Button>
       </Modal>
 

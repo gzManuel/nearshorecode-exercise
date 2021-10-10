@@ -7,7 +7,6 @@ export const checkEmail= async(email)=>{
         method:'Post',
         headers: {
             'Content-Type': 'application/json',
-            
         },
         body:JSON.stringify(email)
     });
@@ -17,11 +16,12 @@ export const checkEmail= async(email)=>{
 
 export const payment = async (payment)=> {
 
-    const response = await fetch(`${DOMAIN}/payment`, {
+    console.log(payment);
+    const response = await fetch(`${DOMAIN}/payments`, {
+        mode: 'no-cors',
         method:'Patch',
         headers: {
             'Content-Type': 'application/json',
-            
         },
         body:JSON.stringify(payment)
     });
