@@ -63,8 +63,11 @@ function App() {
         <Button onClick={() => { setShowModal(false) }}>Cancel</Button>
       </Modal>
 
-      <Modal show={showFormPayment} onCancel={() => { setShowFormPayment(false) }} title={"Your Balance"} >
-        <FormPayment></FormPayment>
+      <Modal show={showFormPayment} onCancel={() => { setShowFormPayment(false) }} title={`Your Balance ${email}`} >
+        
+         {(httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length !== 0)&&
+         <FormPayment email={email} userAmount={httpStateCheck.data.amount}/>}
+         
         <Button onClick={() => { setShowFormPayment(false) }}>Cancel </Button>
       </Modal>
 

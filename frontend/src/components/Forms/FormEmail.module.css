@@ -1,4 +1,4 @@
-form {
+.formEmail {
     margin:auto;/* nice thing of auto margin if display:flex; it center both horizontal and vertical :) */
     padding-top: 200px;
   }

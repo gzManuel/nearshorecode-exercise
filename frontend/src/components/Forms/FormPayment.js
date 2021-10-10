@@ -5,6 +5,7 @@ import {payment} from '../../api/api';
 import useHttp from '../../hooks/useHttp';
 
 const FormPayment = ({userAmount, email}) => {
+    const { sendRequest: payment, httpState: httpStatePayment } = useHttp();
     const [amount,setAmount]= useState();
     const {sendRequest, httpState} = useHttp(payment);
     
