@@ -1,12 +1,6 @@
 
 const DOMAIN = 'http://localhost:3333';
 
-// const options = {
-//     Headers : {
-//         'Content-Type': 'application/json'
-//     }
-// };
-
 export const checkEmail= async(email)=>{
 
     const response = await fetch(`${DOMAIN}/information`, {
