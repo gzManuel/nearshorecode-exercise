@@ -7,7 +7,7 @@ const router = express.Router();
 // EndPoints
 // router.post('/',mainController.postUser);
 
-router.get('/information', mainController.information);
+router.post('/information', mainController.information);
 router.patch('/loan', mainController.loan);
 router.patch('/payments', mainController.payments);
 
