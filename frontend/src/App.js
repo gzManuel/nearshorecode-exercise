@@ -1,9 +1,13 @@
+import FormEmail from "./components/Forms/FormEmail";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
-    <div>
-      Hi
-    </div>
+    <Layout>
+      <FormEmail>
+        
+      </FormEmail>
+    </Layout>
   );
 }
 
