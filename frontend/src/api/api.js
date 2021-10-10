@@ -14,3 +14,17 @@ export const checkEmail= async(email)=>{
     const jsonResponse = await response.json();
     console.log(jsonResponse);
 }
+
+export const payment = async (payment)=> {
+
+    const response = await fetch(`${DOMAIN}/payment`, {
+        method:'Patch',
+        headers: {
+            'Content-Type': 'application/json',
+            
+        },
+        body:JSON.stringify(payment)
+    });
+    const jsonResponse = await response.json();
+    console.log(jsonResponse);
+}
