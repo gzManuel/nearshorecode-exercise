@@ -9,5 +9,6 @@ const router = express.Router();
 
 router.get('/information', mainController.information);
 router.patch('/loan', mainController.loan);
+router.patch('/payments', mainController.payments);
 
 module.exports = router;
