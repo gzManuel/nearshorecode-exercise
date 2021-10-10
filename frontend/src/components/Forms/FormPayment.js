@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 
 import Button from '../UI/Button';
+import {payment} from '../../api/api';
+import useHttp from '../../hooks/useHttp';
 
-const FormPayment = ({userAmount}) => {
+const FormPayment = ({userAmount, email}) => {
     const [amount,setAmount]= useState();
+    const {sendRequest, httpState} = useHttp(payment);
     
     const payHandler = (event)=>{
         event.preventDefault();
