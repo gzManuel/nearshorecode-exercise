@@ -12,7 +12,7 @@ export const checkEmail= async(email)=>{
         body:JSON.stringify(email)
     });
     const jsonResponse = await response.json();
-    console.log(jsonResponse);
+    return jsonResponse;
 }
 
 export const payment = async (payment)=> {
@@ -26,5 +26,5 @@ export const payment = async (payment)=> {
         body:JSON.stringify(payment)
     });
     const jsonResponse = await response.json();
-    console.log(jsonResponse);
+    return jsonResponse;
 }
