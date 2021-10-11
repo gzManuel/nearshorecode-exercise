@@ -2,9 +2,8 @@
 const DOMAIN = 'http://localhost:3333';
 
 export const checkEmail= async(email)=>{
-
     const response = await fetch(`${DOMAIN}/information`, {
-        method:'Post',
+        method:'POST',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -15,11 +14,9 @@ export const checkEmail= async(email)=>{
 }
 
 export const payment = async (payment)=> {
-
-    console.log(payment);
+    
     const response = await fetch(`${DOMAIN}/payments`, {
-        mode: 'no-cors',
-        method:'Patch',
+        method:'PATCH',
         headers: {
             'Content-Type': 'application/json',
         },

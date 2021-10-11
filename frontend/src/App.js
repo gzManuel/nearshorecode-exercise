@@ -26,14 +26,8 @@ function App() {
     // If is sent request and there isn't found a user.
     
     if (email.length !== 0) {
-
-      console.log(Object.keys(httpStateCheck.data).length)
-      console.log(httpStateCheck.status)
-
       if (httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length !== 0) {
         setShowFormPayment(true);
-
-        console.log("hey")
       }
       if (httpStateCheck.status==="completed" && Object.keys(httpStateCheck.data).length === 0) {
         console.log('hey you')
@@ -65,7 +59,7 @@ function App() {
       <Modal show={showFormPayment} onCancel={() => { setShowFormPayment(false) }} title={`Your Balance ${email}`} >
         
          {(httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length !== 0)&&
-         <FormPayment email={email} userAmount={httpStateCheck.data.amount}/>}
+         <FormPayment email={email} userAmount={httpStateCheck.data.amount} onPay={checkEmailHandler}/>}
 
         <Button onClick={() => { setShowFormPayment(false) }}>Cancel </Button>
       </Modal>
