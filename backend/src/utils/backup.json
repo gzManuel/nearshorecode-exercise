@@ -1,0 +1,21 @@
+[{
+    "_id": "user1@test.com",
+    "amount": 900,
+    "newUser": false,
+    "__v": 0
+  },{
+    "_id": "user2@test.com",
+    "amount": 900,
+    "newUser": false,
+    "__v": 0
+  },{
+    "_id": "user3@test.com",
+    "amount": 0,
+    "newUser": true,
+    "__v": 0
+  },{
+    "_id": "user4@test.com",
+    "amount": 0,
+    "newUser": true,
+    "__v": 0
+  }]

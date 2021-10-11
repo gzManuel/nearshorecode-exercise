@@ -5,13 +5,14 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "mocha src/ --recursive --exit"
+    "test": "concurrently  \"mongoimport --db loans --collection users --host localhost --port 27017 --jsonArray --type json --file rick.json --drop --file src/utils/backup.json && mocha src/ --recursive --exit\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",
+    "concurrently": "^6.3.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -20,5 +21,6 @@
     "mongoose": "^5.4.1",
     "nodemon": "^2.0.13",
     "supertest": "^3.3.0"
-  }
+  },
+  "devDependencies": {}
 }
