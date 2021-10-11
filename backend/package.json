@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "concurrently  \"mongoimport --db loans --collection users --host localhost --port 27017 --jsonArray --type json --file rick.json --drop --file src/utils/backup.json && mocha src/ --recursive --exit\""
+    "test": "concurrently  \"mongoimport --db loans --collection users --host localhost --port 27017 --jsonArray --type json --drop --file src/utils/backup.json && mocha src/ --recursive --exit\""
   },
   "keywords": [],
   "author": "",
