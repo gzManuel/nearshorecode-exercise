@@ -6,6 +6,9 @@ The backend uses:
 - **NodeJS** 
 - **Express** framework to build fast RESt apis.
 - **Mongoose** Orm to modelate the database.
+- **Mocka & Chai& & supertest** For testing.
+- **MongoDb** database for the database
+
 
 ## Frontend
 
