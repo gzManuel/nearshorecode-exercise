@@ -27,13 +27,9 @@ function App() {
     
     if (email.length !== 0) {
 
-      console.log(Object.keys(httpStateCheck.data).length)
-      console.log(httpStateCheck.status)
 
       if (httpStateCheck.status === "completed" && Object.keys(httpStateCheck.data).length !== 0) {
         setShowFormPayment(true);
-
-        console.log("hey")
       }
       if (httpStateCheck.status==="completed" && Object.keys(httpStateCheck.data).length === 0) {
         console.log('hey you')

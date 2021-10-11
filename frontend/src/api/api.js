@@ -16,7 +16,6 @@ export const checkEmail= async(email)=>{
 
 export const payment = async (payment)=> {
 
-    console.log(payment);
     const response = await fetch(`${DOMAIN}/payments`, {
         mode: 'no-cors',
         method:'Patch',
