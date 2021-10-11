@@ -9,12 +9,14 @@
     align-items: center;
     justify-content: center;
     z-index: 2;
+    
 }
 
 .modal__content{
     width: 300px;
-    background-color: rgb(57, 62, 64);
+    background-color: rgb(42, 158, 204);
     padding: 50px 75px;
+    border-radius: 25px;
 }
 .modal__body{
     padding:10px;
