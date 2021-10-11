@@ -10,8 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^6.0.10"
+    "mocha": "^5.2.0",
+    "mockgoose": "^7.3.5",
+    "mongoose": "^6.0.10",
+    "supertest": "^3.3.0"
   }
 }
