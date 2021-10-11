@@ -1,7 +1,5 @@
 # BACKEND
-
-# FRONTEND
-The frontend uses react library and was created with `npx create-react-app`
+The backend uses nodejs and mongodb for the database.
 
 ## Getting started
 ### Installing dependencies
@@ -15,16 +13,18 @@ This project utilizes NPM to manage third party libraries, npm relies in package
 npm install
 ```
 ### Required Tasks Before running the server
-In this part will be the instructions before to start the backend
+In this part will be the instructions before to start the backend.
+
+#### Installing mongodb 
+Before running the backend you need to have mongodb, in any of his editions.
+- Community: To install the mongodb community go here. [Mongo community](https://docs.mongodb.com/manual/administration/install-community/)
+- Atlas: Or you can use this hosting database service, it's also free. [Mongo Atlas](https://www.mongodb.com/cloud/atlas/register)
 
 #### Setting up configuration
 
-- Before run the server you have to setup your PORT configuration. You have to put your domain backend in the file `.env`
+- Before run the server you have to setup your PORT configuration. You have to put your domain backend in the file `.env`.
 
-- Update the database mongodb URL in `./src/app.js` file
-
-#### Installing mongodb 
-
+- Update the database mongodb URL in the file `.env`.
 
 #### Running your server
 Once installed all third dependencies with `npm install` run your frontend server on a localhost port, inside of `./backend/` directory in your terminal run:
@@ -32,6 +32,16 @@ Once installed all third dependencies with `npm install` run your frontend serve
 ```bash
 npm start
 ```
+
+### Running Unit tests
+Before running unit testing you have to check the file `./package.json` run script. 
+- Check if the **--host** parameter coincides with your mongodb host.
+- Check if the **--port** parameter coincides with your mongodb port.
+
+```bash
+npm run test
+```
+
 ### Project Structure
 If you want to do changes in the code this will be helpful.
 
@@ -39,8 +49,10 @@ If you want to do changes in the code this will be helpful.
 ├── README.md
 ├── .env *** Enviroment variables
 ├── src
-│   ├── app.js *** Execute the app
+│   ├── app.js *** The app server
+│   ├── index.js *** Connect to the database and runs the server
 │   ├── controllers *** The controllers used in routes
 │   ├── models *** The models for ORM database
 │   ├── routes *** The routes for the api
+│   ├── utils *** Utilities, there are a backup.json for testing and the db to connect to mongodb.
 │  
