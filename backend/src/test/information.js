@@ -13,13 +13,13 @@ describe('POST /information', () => {
         conn.connect()
             .then(() => done())
             .catch((err) => done(err));
-    })
+    });
 
     after((done) => {
         conn.close()
             .then(() => done())
             .catch((err) => done(err));
-    })
+    });
 
     it('OK, getting amount of the user', (done) => {
         request(app).post('/information')
@@ -40,5 +40,4 @@ describe('POST /information', () => {
                 done();
             }).catch((err) => done(err));
     });
-    
 });
