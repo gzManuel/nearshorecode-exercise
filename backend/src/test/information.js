@@ -11,7 +11,7 @@ describe('POST /information',()=>{
             const body = res.body;
             expect(body).to.contain.property('amount');
             done();
-        })
+        }).catch((err)=>done(err));
     })
 
 });
@@ -24,7 +24,7 @@ describe('POST /information',()=>{
             const body = res.body;
             expect(Object.keys(body)).to.have.lengthOf(0);
             done();
-        })
+        }).catch((err)=>done(err));
     })
 
 });
