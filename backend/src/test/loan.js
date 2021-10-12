@@ -39,5 +39,25 @@ describe('PATCH /loan', () => {
             }).catch((err) => done(err));
     });
 
+    it('Ok, Old user can\'t loan more than 1000$',(done)=>{
+        request(app).patch('/loan')
+            .send({email:"user1@test.com",amount:200})
+            .then(res=>{
+                const body = res.body;
+                expect(body).to.contain.property('error');
+                expect(body.error).to.equal('100');
+                done()
+            }).catch((err)=>done(err));
+    })
 
+    it('OK, Old user can loan if amount doesn\'t exceed 1000$',(done)=>{
+        request(app).patch('/loan')
+            .send({ email: "user1@test.com", amount: 100 })
+            .then(res => {
+                const body = res.body;
+                expect(body).to.contain.property('status');
+                expect(body.status).to.equal('succeed')
+                done();
+            }).catch((err) => done(err));
+    });
 });
