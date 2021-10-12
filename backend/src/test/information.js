@@ -5,8 +5,6 @@ const request = require('supertest');
 const app = require('../app.js');
 const conn = require('../utils/db.js')
 
-require('dotenv').config();
-
 describe('POST /information', () => {
 
     before((done) => {

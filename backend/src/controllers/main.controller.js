@@ -6,10 +6,9 @@ const information = (req, res) => {
     if (!req.body.email) return res.status(400).json({ message: "Bad request" });
 
     User.findById(req.body.email).exec((err, user) => {
-
-        if (!user) return res.status(200).json({});
-
         if (err) return res.status(500).json({ message: "Something went wrong" });
+        
+        if (!user) return res.status(200).json({});
 
         return res.status(200).json({ amount: user.amount });
 

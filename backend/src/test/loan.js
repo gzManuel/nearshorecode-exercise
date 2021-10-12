@@ -4,8 +4,6 @@ const request = require('supertest');
 const app = require('../app.js');
 const conn = require('../utils/db.js')
 
-require('dotenv').config();
-
 describe('PATCH /loan', () => {
     before((done) => {
         conn.connect()
@@ -25,7 +23,7 @@ describe('PATCH /loan', () => {
             .then(res => {
                 const body = res.body;
                 expect(body).to.contain.property('error');
-                expect(body.error).to.equal('101')
+                expect(body.error).to.equal('101');
                 done();
             }).catch((err) => done(err));
     });
@@ -40,4 +38,6 @@ describe('PATCH /loan', () => {
                 done();
             }).catch((err) => done(err));
     });
+
+
 });
